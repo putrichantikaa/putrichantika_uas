@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('obats', function (Blueprint $table) {
             $table->id();
+            $table->string('kd_obat')->unique();
             $table->string('nama_obat',100);
             $table->date('tgl_kadaluarsa');
             $table->string('satuan',100);
