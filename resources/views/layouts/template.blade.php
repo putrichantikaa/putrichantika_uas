@@ -16,6 +16,7 @@
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="{{asset("/assets/img/favicon/favicon.ico")}}">
+    <link rel="stylesheet" href={{ asset('css/all.css') }}>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -126,41 +127,50 @@
           <ul class="menu-inner py-1">
             <!-- Dashboards -->
             <li class="menu-item">
-              <a href="javascript:void(0);" class="menu-link menu-toggle">
+              <a href="" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-home-smile"></i>
-                <div class="text-truncate" data-i18n="Dashboards">Dashboard</div>
+                <div class="text-truncate" data-i18n="Dashboards">Beranda</div>
               </a>
             </li>
 
             <!-- Dashboards -->
             <li class="menu-item">
               <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-home-smile"></i>
-                <div class="text-truncate" data-i18n="Dashboards">Dashboard</div>
+                <i class="menu-icon tf-icons bx bx-user"></i>
+               
+                <div class="text-truncate" data-i18n="Dashboards">Data Pasien</div>
               </a>
             </li>
 
            <!-- Dashboards -->
             <li class="menu-item">
               <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-home-smile"></i>
-                <div class="text-truncate" data-i18n="Dashboards">Dashboard</div>
+                <i class="menu-icon tf-icons fa-solid fa-capsules"></i>
+                <div class="text-truncate" data-i18n="Dashboards">Data Obat</div>
               </a>
             </li>
 
             <!-- Dashboards -->
             <li class="menu-item">
               <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-home-smile"></i>
-                <div class="text-truncate" data-i18n="Dashboards">Dashboard</div>
+                <i class="menu-icon tf-icons fa-solid fa-file-medical"></i>
+                <div class="text-truncate" data-i18n="Dashboards">Data Resep</div>
               </a>
             </li>
 
             <!-- Dashboards -->
             <li class="menu-item">
               <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-home-smile"></i>
-                <div class="text-truncate" data-i18n="Dashboards">Dashboard</div>
+               <i class="menu-icon tf-icons bx bx-plus-medical"></i>
+                <div class="text-truncate" data-i18n="Dashboards">Pengambilan Obat</div>
+              </a>
+            </li>
+
+            <!-- Dashboards -->
+            <li class="menu-item">
+              <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bx-log-out"></i>
+                <div class="text-truncate" data-i18n="Dashboards">Log Out</div>
               </a>
             </li>
         </ul>
@@ -271,35 +281,15 @@
             </div>
           </nav>
 
-          <!-- / Navbar -->
+          <!-- / content -->
+          @yield('content')
 
-          <!-- Content wrapper -->
+          <!-- footer -->
           <div class="content-wrapper">
-            <!-- Content -->
-            <div class="container-xxl flex-grow-1 container-p-y">
-              <div class="row gy-6">
-                <!-- Vertical Scrollbar -->
-                
-                <!--/ Vertical Scrollbar -->
-
-                <!-- Horizontal Scrollbar -->
-               
-                <!--/ Horizontal Scrollbar -->
-
-                <!-- Vertical & Horizontal Scrollbars -->
-                <div class="col-12">
-                  Selamat Datang di Apotek Chnlyn!
-                </div>
-                <!--/ Vertical & Horizontal Scrollbars -->
-              </div>
-            </div>
-            <!-- / Content -->
-
-            <!-- Footer -->
+            <div class="footer">
             <footer class="content-footer footer bg-footer-theme">
               <div class="container-xxl">
-                <div
-                  class="footer-container d-flex align-items-center justify-content-between py-4 flex-md-row flex-column">
+                <div class="footer-container d-flex align-items-center justify-content-between py-4 flex-md-row flex-column">
                   <div class="mb-2 mb-md-0">
                     ©
                     <script>
@@ -308,39 +298,10 @@
                     , made with ❤️ by
                     <a href="https://themeselection.com" target="_blank" class="footer-link">Chnlyn</a>
                   </div>
-                  <div class="d-none d-lg-inline-block">
-                    <a
-                      href="https://themeselection.com/item/category/admin-templates/"
-                      target="_blank"
-                      class="footer-link me-4"
-                      >Admin Templates</a
-                    >
-
-                    <a href="https://themeselection.com/license/" class="footer-link me-4" target="_blank">License</a>
-                    <a
-                      href="https://themeselection.com/item/category/bootstrap-admin-templates/"
-                      target="_blank"
-                      class="footer-link me-4"
-                      >Bootstrap Dashboard</a
-                    >
-
-                    <a
-                      href="https://demos.themeselection.com/sneat-bootstrap-html-admin-template/documentation/"
-                      target="_blank"
-                      class="footer-link me-4"
-                      >Documentation</a
-                    >
-
-                    <a
-                      href="https://github.com/themeselection/sneat-bootstrap-html-admin-template-free/issues"
-                      target="_blank"
-                      class="footer-link"
-                      >Support</a
-                    >
-                  </div>
                 </div>
               </div>
             </footer>
+            </div>
             <!-- / Footer -->
 
             <div class="content-backdrop fade"></div>
@@ -352,16 +313,6 @@
 
       <!-- Overlay -->
       <div class="layout-overlay layout-menu-toggle"></div>
-    </div>
-    <!-- / Layout wrapper -->
-
-    <div class="buy-now">
-      <a
-        href="https://themeselection.com/item/sneat-dashboard-pro-bootstrap/"
-        target="_blank"
-        class="btn btn-danger btn-buy-now"
-        >Upgrade to Pro</a
-      >
     </div>
 
     <!-- Core JS -->
@@ -386,6 +337,7 @@
 
     <!-- Page JS -->
     <script src="{{asset("assets/js/extended-ui-perfect-scrollbar.js")}}"></script>
+    <script src={{asset('js/all.js')}}></script>
 
     <!-- Place this tag before closing body tag for github widget button. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
