@@ -14,7 +14,7 @@
       <div class="card-body">
         <div class="d-flex justify-content-between align-items-center">
           <h3 class="mb-0">Data Pasien</h3>
-          <a class="btn btn-primary" href="jadwal/add">
+          <a class="btn btn-primary" href="tambah">
             <i class="fa fa-user-plus"></i> Tambah Data
           </a>
         </div>

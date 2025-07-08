@@ -25,3 +25,4 @@ Route::get('/cektemplate', function () {
 Auth::routes();
 
 Route::get('/beranda', [App\Http\Controllers\HomeController::class, 'index']);
+Route::get('/beranda', [App\Http\Controllers\HomeController::class, 'index']);

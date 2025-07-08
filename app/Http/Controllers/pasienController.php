@@ -12,9 +12,10 @@ class pasienController extends Controller
      */
     public function index()
     {
-        //
+        //menampilkan data dosen
+        $nomor = 1;
         $pasien = Pasien::all();
-        return view('pasien.index',compact('pasien'));
+        return view('pasien.index',compact('pasien','nomor'));
     }
 
     /**
@@ -22,7 +23,8 @@ class pasienController extends Controller
      */
     public function create()
     {
-        //
+        // menampilkan form tambah
+        return view('pasien.tambah');
     }
 
     /**
