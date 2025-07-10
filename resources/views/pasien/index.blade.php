@@ -29,7 +29,7 @@
                 <th>NIK</th>
                 <th>Nama Pasien</th>
                 <th>Tgl Lahir</th>
-                <th>NO HP</th>
+                <th>No HP</th>
                 <th>Alamat</th>
                 <th>Action</th>
               </tr>
@@ -45,11 +45,11 @@
                     <td>{{ $data->alamat }}</td>
                     
                     <td class="text-end">
-                        <a href="{{ url('/pasien') }}" class="btn btn-warning btn-sm">
+                        <a href=/pasien class="btn btn-warning btn-sm">
                             <i class="fa fa-circle-info"></i>
                         </a>
-                        <a href="{{ url('/pasien/edit') }}" class="btn btn-info btn-sm">
-                            <i class="fa-solid fa-pen-to-square"></i>
+                        <a href="/pasien/edit/{{ $data->id }}" class="btn btn-success btn-sm">
+                            <i class="fa-solid fa-pen-to-square"></i> 
                         </a>
 
                         <!-- Button trigger modal -->
@@ -66,11 +66,11 @@
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
-                                        Yakin ingin menghapus data pendaftar <strong></strong>?
+                                        Yakin ingin menghapus data pasien <strong></strong>?
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                                        <form action="{{ url('/pasien' )}}" method="POST">
+                                        <form action="{{ url('/pasien/' . $data->id) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-danger">Hapus</button>

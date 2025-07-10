@@ -33,7 +33,9 @@ Auth::routes();
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 //Data Pasien
-Route::get('/pasien', [PasienController::class, 'index']);
-Route::get('/pasien/tambah', [PasienController::class, 'create']);
-Route::post('/pasien', [PasienController::class, 'store']);
-
+Route::get('/pasien', [pasienController::class, 'index']);
+Route::get('/pasien/tambah', [pasienController::class, 'create']);
+Route::post('/pasien', [pasienController::class, 'store']);
+Route::get('/pasien/edit/{id}', [pasienController::class, 'edit']);
+Route::put('/pasien/{id}', [pasienController::class, 'update']);
+Route::delete('/pasien/{id}', [pasienController::class, 'destroy']);

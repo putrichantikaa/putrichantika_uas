@@ -13,7 +13,7 @@ class PasienController extends Controller
      */
     public function index()
     {
-        //menampilkan data dosen
+        //menampilkan data pasien
         $nomor = 1;
         $pasien = Pasien::all();
         return view('pasien.index',compact('pasien','nomor'));
@@ -58,7 +58,8 @@ class PasienController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $pasien = Pasien::find($id);
+        return view('pasien.edit', compact('pasien'));
     }
 
     /**
@@ -66,7 +67,17 @@ class PasienController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        //proses edit
+        $pasien = Pasien::find($id);
+        $pasien->nik_pasien = $request->nik_pasien;
+        $pasien->nama_pasien = $request->nama_pasien;
+        $pasien->tgl_lahir = $request->tgl_lahir;
+        $pasien->no_hp = $request->no_hp;
+        $pasien->alamat = $request->alamat;
+        $pasien->save();
+
+
+        return redirect('/pasien');
     }
 
     /**
@@ -74,6 +85,8 @@ class PasienController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $pasien = Pasien::find($id);
+        $pasien->delete();
+        return redirect('/pasien');
     }
 }
