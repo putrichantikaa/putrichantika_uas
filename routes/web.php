@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PasienController;
+use App\Http\Controllers\ObatController;
 
 
 /*
@@ -39,3 +40,11 @@ Route::post('/pasien', [pasienController::class, 'store']);
 Route::get('/pasien/edit/{id}', [pasienController::class, 'edit']);
 Route::put('/pasien/{id}', [pasienController::class, 'update']);
 Route::delete('/pasien/{id}', [pasienController::class, 'destroy']);
+
+//Data Obat
+Route::get('/obat', [obatController::class, 'index']);
+Route::get('/obat/tambah', [obatController::class, 'create']);
+Route::post('/obat', [obatController::class, 'store']);
+Route::get('/obat/edit/{id}', [obatController::class, 'edit']);
+Route::put('/obat/{id}', [obatController::class, 'update']);
+Route::delete('/obat/{id}', [obatController::class, 'destroy']);

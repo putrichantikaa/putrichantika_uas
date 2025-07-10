@@ -3,15 +3,20 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Obat;
 
 class obatController extends Controller
+
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        //menampilkan data obat
+        $nomor = 1;
+        $obat = Obat::all();
+        return view('obat.index',compact('obat','nomor'));
     }
 
     /**
@@ -19,7 +24,8 @@ class obatController extends Controller
      */
     public function create()
     {
-        //
+         // menampilkan form tambah
+        return view('obat.tambah');
     }
 
     /**
@@ -27,7 +33,15 @@ class obatController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //proses tambah
+        $obat = new Obat;
+        $obat->kd_obat = $request->kd_obat;
+        $obat->nama_obat = $request->nama_obat;
+        $obat->tgl_kadaluarsa = $request->tgl_kadaluarsa;
+        $obat->satuan = $request->satuan;
+        $obat->save();
+
+        return redirect('/obat');
     }
 
     /**
@@ -43,7 +57,8 @@ class obatController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $obat = Obat::find($id);
+        return view('obat.edit', compact('obat'));
     }
 
     /**
@@ -51,7 +66,16 @@ class obatController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        //proses edit
+        $obat = Obat::find($id);
+        $obat->kd_obat = $request->kd_obat;
+        $obat->nama_obat = $request->nama_obat;
+        $obat->tgl_kadaluarsa = $request->tgl_kadaluarsa;
+        $obat->satuan = $request->satuan;
+        $obat->save();
+
+
+        return redirect('/obat');
     }
 
     /**
@@ -59,6 +83,8 @@ class obatController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $obat = Obat::find($id);
+        $obat->delete();
+        return redirect('/obat');
     }
 }

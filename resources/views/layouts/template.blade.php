@@ -144,7 +144,7 @@
 
            <!-- Dashboards -->
             <li class="menu-item">
-              <a href="#" class="menu-link ">
+              <a href="/obat" class="menu-link ">
                 <i class="menu-icon tf-icons fa-solid fa-capsules"></i>
                 <div class="text-truncate" data-i18n="Dashboards">Data Obat</div>
               </a>
