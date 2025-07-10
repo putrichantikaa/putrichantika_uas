@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Pasien;
 
-class pasienController extends Controller
+class PasienController extends Controller
+
 {
     /**
      * Display a listing of the resource.
@@ -32,7 +33,16 @@ class pasienController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //proses tambah
+        $pasien = new Pasien;
+        $pasien->nik_pasien = $request->nik_pasien;
+        $pasien->nama_pasien = $request->nama_pasien;
+        $pasien->tgl_lahir = $request->tgl_lahir;
+        $pasien->no_hp = $request->no_hp;
+        $pasien->alamat = $request->alamat;
+        $pasien->save();
+
+        return redirect('/pasien');
     }
 
     /**

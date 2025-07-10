@@ -12,11 +12,11 @@
                         @csrf
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">NIK</label>
-                            <input type="text" name="nik" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                            <input type="text" name="nik_pasien" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputPassword1" class="form-label">Nama Pasien</label>
-                            <input type="text" name="nama" class="form-control" id="exampleInputPassword1">
+                            <input type="text" name="nama_pasien" class="form-control" id="exampleInputPassword1">
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputPassword1" class="form-label">Tanggal Lahir</label>
@@ -24,7 +24,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputPassword1" class="form-label">No HP</label>
-                            <input type="nohp" name="nohp" class="form-control" id="exampleInputPassword1">
+                            <input type="nohp" name="no_hp" class="form-control" id="exampleInputPassword1">
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputPassword1" class="form-label">Alamat</label>

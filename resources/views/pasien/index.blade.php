@@ -8,60 +8,86 @@
 @endsection
 
 @section('content')
-<div class="container mt-5">
-  <div class="row justify-content-center">
-    <div class="card col-md-10 mx-auto">
-      <div class="card-body">
-        <div class="d-flex justify-content-between align-items-center">
-          <h3 class="mb-0">Data Pasien</h3>
-          <a class="btn btn-primary" href="tambah">
-            <i class="fa fa-user-plus"></i> Tambah Data
-          </a>
-        </div>
+<div class="row justify-content-center">
+  <div class="card col-11 px-4">
+    <div class="card-body">
+      <div class="d-flex justify-content-between align-items-center">
+        <h3 class="mb-0">Data Pasien</h3>
+        <a class="btn btn-primary" href="/pasien/tambah">
+          <i class="fa fa-user-plus"></i> Tambah Data
+        </a>
       </div>
+    </div>
 
-      <div class="card-body">
-        <div class="row g-3">
+    <div class="card-body">
+      <div class="row g-3">
+        <div class="table-responsive">
           <table class="table table-striped">
             <thead>
               <tr>
-                <th scope="col">NO</th>
-                <th scope="col">NIK</th>
-                <th scope="col">Nama Pasien</th>
-                <th scope="col">Tgl Lahir</th>
-                <th scope="col">NO HP</th>
-                <th scope="col">Alamat</th>
-                <th scope="col">Action</th>
+                <th>#</th>
+                <th>NIK</th>
+                <th>Nama Pasien</th>
+                <th>Tgl Lahir</th>
+                <th>NO HP</th>
+                <th>Alamat</th>
+                <th>Action</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>12345</td>
-                <td>PC</td>
-                <td>03 Agustus 2005</td>
-                <td>08124736</td>
-                <td>Keutapang</td>
-                <td>
-                  <button type="button" class="btn btn-sm btn-primary me-1">
-                    <i class="fa-solid fa-pen-to-square"></i>
-                  </button>
-                  <button type="button" class="btn btn-sm btn-danger">
-                    <i class="fa-solid fa-trash"></i>
-                  </button>
-                </td>
-              </tr>
+               @forelse ($pasien as $data)
+                <tr>
+                    <th scope="row">{{ $nomor++ }}</th>
+                    <td>{{ $data->nik_pasien }}</td>
+                    <td>{{ $data->nama_pasien }}</td>
+                    <td>{{ $data->tgl_lahir }}</td>
+                    <td>{{ $data->no_hp }}</td>
+                    <td>{{ $data->alamat }}</td>
+                    
+                    <td class="text-end">
+                        <a href="{{ url('/pasien') }}" class="btn btn-warning btn-sm">
+                            <i class="fa fa-circle-info"></i>
+                        </a>
+                        <a href="{{ url('/pasien/edit') }}" class="btn btn-info btn-sm">
+                            <i class="fa-solid fa-pen-to-square"></i>
+                        </a>
+
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                            <i class="fa-solid fa-folder-open"></i>
+                        </button>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="deleteModalLabel">Peringatan</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Yakin ingin menghapus data pendaftar <strong></strong>?
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                                        <form action="{{ url('/pasien' )}}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-danger">Hapus</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                @empty
+                <tr>
+                    <td colspan="5" class="text-center">Data tidak tersedia.</td>
+                </tr>
+                @endforelse
             </tbody>
-          </table>
-        </div>
-      </div>
+        </table>
     </div>
-  </div>
 </div>
-
-
-
 @endsection
-    
-        
-    

@@ -1,7 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\pasienController;
+use App\Http\Controllers\PasienController;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,8 +16,12 @@ use App\Http\Controllers\pasienController;
 */
 
 Route::get('/', function () {
-    return view('pasien.index');
-});
+    return view('home');
+})->middleware('auth');
+
+Route::get('/home', function () {
+    return view('home');
+})->middleware('auth');
 
 
 Route::get('/cektemplate', function () {
@@ -24,5 +30,10 @@ Route::get('/cektemplate', function () {
 
 Auth::routes();
 
-Route::get('/beranda', [App\Http\Controllers\HomeController::class, 'index']);
-Route::get('/beranda', [App\Http\Controllers\HomeController::class, 'index']);
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+//Data Pasien
+Route::get('/pasien', [PasienController::class, 'index']);
+Route::get('/pasien/tambah', [PasienController::class, 'create']);
+Route::post('/pasien', [PasienController::class, 'store']);
+
