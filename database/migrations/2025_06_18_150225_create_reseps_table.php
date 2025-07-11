@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('reseps', function (Blueprint $table) {
             $table->id();
             $table->string('no_resep')->unique();
-            $table->bigInteger('pasiens_id');
-            $table->bigInteger('obats_id');
+            $table->string('pasiens_id', 100);
+            $table->string('obats_id', 100);
             $table->string('diagnosa',100);
             $table->timestamps();
         });

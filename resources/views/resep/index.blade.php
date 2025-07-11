@@ -1,10 +1,10 @@
 @extends('layouts.template')
 @section('title')
-    Halaman Data Obat
+    Halaman Data Resep
 @endsection
 
 @section('headline')
-    DATA OBAT         
+    DATA RESEP
 @endsection
 
 @section('content')
@@ -12,8 +12,8 @@
   <div class="card col-11 px-4">
     <div class="card-body">
       <div class="d-flex justify-content-between align-items-center">
-        <h3 class="mb-0">Data Obat</h3>
-        <a class="btn btn-primary" href="/obat/tambah">
+        <h3 class="mb-0">Data Resep</h3>
+        <a class="btn btn-primary" href="/resep/tambah">
           <i class="fa fa-user-plus"></i> 
         </a>
       </div>
@@ -26,27 +26,26 @@
             <thead>
               <tr>
                 <th>#</th>
-                <th>Kode Obat</th>
-                <th>Nama Obat</th>
-                <th>Tgl Kadaluarsa</th>
-                <th>Satuan</th>
-                <th>Action</th>
+                <th>No Resep</th>
+                <th>ID Pasien</th>
+                <th>ID Obat</th>
+                <th>Diagnosa</th>
               </tr>
             </thead>
             <tbody>
-               @forelse ($obat as $data)
+               @forelse ($resep as $data)
                 <tr>
                     <th scope="row">{{ $nomor++ }}</th>
-                    <td>{{ $data->kd_obat }}</td>
-                    <td>{{ $data->nama_obat }}</td>
-                    <td>{{ $data->tgl_kadaluarsa }}</td>
-                    <td>{{ $data->satuan }}</td>
+                    <td>{{ $data->no_resep }}</td>
+                    <td>{{$data->pasiens->id}}</td>
+                    <td>{{$data->obats->id}}</td>
+                    <td>{{ $data->diagnosa }}</td>
                     
                     <td class="text-end">
-                        <a href=/obat class="btn btn-warning btn-sm">
+                        <a href=/resep class="btn btn-warning btn-sm">
                             <i class="fa fa-circle-info"></i>
                         </a>
-                        <a href="/obat/edit/{{ $data->id }}" class="btn btn-success btn-sm">
+                        <a href="/resep/edit/{{ $data->id }}" class="btn btn-success btn-sm">
                             <i class="fa-solid fa-pen-to-square"></i> 
                         </a>
 
@@ -64,11 +63,11 @@
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
-                                        Yakin ingin menghapus Data Obat <strong></strong>?
+                                        Yakin ingin menghapus data obat <strong></strong>?
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                                        <form action="{{ url('/obat/' . $data->id) }}" method="POST">
+                                        <form action="{{ url('/resep/' . $data->id) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-danger">Hapus</button>
@@ -89,3 +88,75 @@
     </div>
 </div>
 @endsection
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{{-- @extends('layouts.template')
+
+@section('title')
+    Halaman Data Resep
+@endsection
+
+@section('headline')
+    DATA RESEP
+@endsection
+
+@section('content')
+<div class="row justify-content-center">
+  <div class="card col-11 px-4">
+    <div class="card-body">
+        
+    @forelse ($resep as $data) --}}
+      {{-- Card berada tepat di bawah judul --}}
+      {{-- <div class="row">
+        <div class="col-md-4"> Sesuaikan ukuran sesuai kebutuhan
+          <div class="card shadow-sm bg-primary text-white">
+            <img width="40" src="https://picsum.photos/2000" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title text-white">Resep</h5>
+              <p class="card-text">No Resep: {{ $data->no_resep }}</p>
+              <p class="card-text">Nama: {{ $data->pasiens_id }}</p>
+              
+              <a href="#" class="btn btn-warning">Detail</a>
+            </div>
+          </div>
+        </div>
+      </div>
+       @empty
+                <tr>
+                    <td colspan="5" class="text-center">Data tidak tersedia.</td>
+                </tr>
+                @endforelse
+
+    </div>
+  </div>
+</div>
+@endsection --}}

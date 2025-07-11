@@ -127,7 +127,7 @@
           <ul class="menu-inner py-1">
             <!-- Dashboards -->
             <li class="menu-item">
-              <a href="/" class="menu-link ">
+              <a href="/beranda" class="menu-link ">
                 <i class="menu-icon tf-icons bx bx-home-smile"></i>
                 <div class="text-truncate" data-i18n="Dashboards">Beranda</div>
               </a>
@@ -152,7 +152,7 @@
 
             <!-- Dashboards -->
             <li class="menu-item">
-              <a href="javascript:void(0);" class="menu-link ">
+              <a href="/resep" class="menu-link ">
                 <i class="menu-icon tf-icons fa-solid fa-file-medical"></i>
                 <div class="text-truncate" data-i18n="Dashboards">Data Resep</div>
               </a>

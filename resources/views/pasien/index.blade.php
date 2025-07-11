@@ -14,7 +14,7 @@
       <div class="d-flex justify-content-between align-items-center">
         <h3 class="mb-0">Data Pasien</h3>
         <a class="btn btn-primary" href="/pasien/tambah">
-          <i class="fa fa-user-plus"></i> Tambah Data
+          <i class="fa fa-user-plus"></i> 
         </a>
       </div>
     </div>
@@ -43,11 +43,51 @@
                     <td>{{ $data->tgl_lahir }}</td>
                     <td>{{ $data->no_hp }}</td>
                     <td>{{ $data->alamat }}</td>
+                    <td>
+                         {{-- detail --}}
+                                        <!-- Button trigger modal -->
+                                        <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#exampleModal">
+                                         <i class="fa fa-circle-info"></i>
+                                        </button>
+                                        
+
+                                        <!-- Modal -->
+                                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                                                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <img src="{{asset('/foto/'.$data->foto.'')}}" height="80" alt="">
+                                                <table class="table">
+
+                                                <tbody>
+                                                    <tr>
+                                                    <td>NIK</td>
+                                                    <td>: {{$data->nik_pasien}}</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                    <td>Nama Pasien</td>
+                                                    <td>: {{$data->nama_pasien}}</td>
+                                                    </tr>
+
+                                                </tbody>
+                                                </table>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                <button type="button" class="btn btn-primary">Save changes</button>
+                                            </div>
+                                            </div>
+                                        </div>
+                                        </div>
+                                        {{-- end of detail --}}
+                                       
                     
-                    <td class="text-end">
-                        <a href=/pasien class="btn btn-warning btn-sm">
-                            <i class="fa fa-circle-info"></i>
-                        </a>
+
                         <a href="/pasien/edit/{{ $data->id }}" class="btn btn-success btn-sm">
                             <i class="fa-solid fa-pen-to-square"></i> 
                         </a>

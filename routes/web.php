@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PasienController;
 use App\Http\Controllers\ObatController;
+use App\Http\Controllers\ResepController;
+use App\Http\Controllers\BerandaController;
 
 
 /*
@@ -33,6 +35,9 @@ Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::get('/beranda', [berandaController::class, 'index']);
+
+
 //Data Pasien
 Route::get('/pasien', [pasienController::class, 'index']);
 Route::get('/pasien/tambah', [pasienController::class, 'create']);
@@ -48,3 +53,6 @@ Route::post('/obat', [obatController::class, 'store']);
 Route::get('/obat/edit/{id}', [obatController::class, 'edit']);
 Route::put('/obat/{id}', [obatController::class, 'update']);
 Route::delete('/obat/{id}', [obatController::class, 'destroy']);
+
+//Data Resep
+Route::get('/resep', [resepController::class, 'index']);

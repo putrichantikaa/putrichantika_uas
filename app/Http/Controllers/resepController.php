@@ -3,15 +3,20 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Resep;
 
 class resepController extends Controller
+
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        //menampilkan data resep
+        $nomor = 1;
+        $resep = Resep::all();
+        return view('resep.index',compact('resep','nomor'));
     }
 
     /**
@@ -19,7 +24,8 @@ class resepController extends Controller
      */
     public function create()
     {
-        //
+         $pasien = Pasien::all();
+        return view('resep.tambah');
     }
 
     /**
@@ -27,7 +33,15 @@ class resepController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $resep = new Resep;
+        $resep->no_resep = $request->no_resep;
+        $resep->pasiens_id = $request->pasien;
+        $resep->obats_id= $request->obat;
+        $resep->diagnosa = $request->diagnosa;
+
+        $resep->save();
+
+        return redirect('/resep');
     }
 
     /**

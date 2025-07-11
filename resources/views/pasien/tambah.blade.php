@@ -1,4 +1,12 @@
-@extends('layouts.app')
+@extends('layouts.template')
+@section('title')
+    Halaman Data Pasien
+@endsection
+
+@section('headline')
+    DATA PASIEN
+@endsection
+
 
 @section('content')
 <div class="container">
@@ -32,7 +40,7 @@
                         </div>
 
 
-                        <button type="submit" class="btn btn-primary">Tambah</button>
+                        <button type="submit" class="btn btn-primary">Simpan</button>
                     </form>
                 </div>
             </div>
