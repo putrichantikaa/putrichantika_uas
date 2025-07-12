@@ -56,3 +56,9 @@ Route::delete('/obat/{id}', [obatController::class, 'destroy']);
 
 //Data Resep
 Route::get('/resep', [resepController::class, 'index']);
+Route::get('/resep/tambah', [resepController::class, 'create']);
+Route::post('/resep', [resepController::class, 'store']);
+Route::get('/resep/edit/{id}', [ResepController::class, 'edit']);
+Route::put('/resep/{id}', [ResepController::class, 'update']);
+Route::delete('/resep/{id}', [ResepController::class, 'destroy']);
+

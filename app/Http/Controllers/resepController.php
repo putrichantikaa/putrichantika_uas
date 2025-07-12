@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Resep;
+use App\Models\Pasien; 
+use App\Models\Obat; 
 
-class resepController extends Controller
+class ResepController extends Controller
 
 {
     /**
@@ -13,10 +15,9 @@ class resepController extends Controller
      */
     public function index()
     {
-        //menampilkan data resep
         $nomor = 1;
         $resep = Resep::all();
-        return view('resep.index',compact('resep','nomor'));
+        return view('resep.index', compact('resep', 'nomor'));
     }
 
     /**
@@ -24,8 +25,9 @@ class resepController extends Controller
      */
     public function create()
     {
-         $pasien = Pasien::all();
-        return view('resep.tambah');
+        $pasien = Pasien::all();
+        $obat = Obat::all();
+        return view('resep.tambah', compact('pasien', 'obat'));
     }
 
     /**
@@ -36,7 +38,7 @@ class resepController extends Controller
         $resep = new Resep;
         $resep->no_resep = $request->no_resep;
         $resep->pasiens_id = $request->pasien;
-        $resep->obats_id= $request->obat;
+        $resep->obats_id = $request->obat;
         $resep->diagnosa = $request->diagnosa;
 
         $resep->save();
@@ -55,24 +57,46 @@ class resepController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
-    {
-        //
-    }
+    public function edit($id)
+{
+    $resep = Resep::findOrFail($id);
+    $pasiens = Pasien::all();
+    $obats = Obat::all();
+
+    return view('resep.edit', compact('resep', 'pasiens', 'obats'));
+}
+
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
+    public function update(Request $request, $id)
+{
+    $request->validate([
+        'no_resep' => 'required',
+        'pasiens_id' => 'required',
+        'obats_id' => 'required',
+        'diagnosa' => 'required'
+    ]);
+
+    $resep = Resep::findOrFail($id);
+    $resep->no_resep = $request->no_resep;
+    $resep->pasiens_id = $request->pasiens_id;
+    $resep->obats_id = $request->obats_id;
+    $resep->diagnosa = $request->diagnosa;
+    $resep->save();
+
+    return redirect('/resep')->with('success', 'Resep berhasil diupdate.');
+}
 
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(string $id)
     {
-        //
+        $resep = Resep::find($id);
+        $resep->delete();
+
+        return redirect('/resep');
     }
 }

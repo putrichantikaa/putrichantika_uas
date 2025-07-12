@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Resep extends Model
 {
     use HasFactory;
+    public function pasiens(){
+        return $this->hasOne(Pasien::class, 'id', 'pasiens_id');
+    }
+
+    public function obats(){
+        return $this->hasOne(Obat::class, 'id', 'obats_id');
+    }
 }

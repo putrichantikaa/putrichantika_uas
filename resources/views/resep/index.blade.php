@@ -25,31 +25,70 @@
           <table class="table table-striped">
             <thead>
               <tr>
-                <th>#</th>
-                <th>No Resep</th>
-                <th>ID Pasien</th>
-                <th>ID Obat</th>
-                <th>Diagnosa</th>
-              </tr>
+                    <th>No</th>
+                    <th>No Resep</th>
+                    <th>Nama Pasien</th>
+                    <th>Nama Obat</th>
+                    <th>Action</th>
+                </tr>
             </thead>
             <tbody>
-               @forelse ($resep as $data)
-                <tr>
-                    <th scope="row">{{ $nomor++ }}</th>
-                    <td>{{ $data->no_resep }}</td>
-                    <td>{{$data->pasiens->id}}</td>
-                    <td>{{$data->obats->id}}</td>
-                    <td>{{ $data->diagnosa }}</td>
-                    
-                    <td class="text-end">
-                        <a href=/resep class="btn btn-warning btn-sm">
-                            <i class="fa fa-circle-info"></i>
-                        </a>
-                        <a href="/resep/edit/{{ $data->id }}" class="btn btn-success btn-sm">
+                @forelse ($resep as $data)
+                    <tr>
+                        <th scope="row">{{ $nomor++ }}</th>
+                        <td>{{ $data->no_resep }}</td>
+                        <td>{{ $data->pasiens->nama_pasien }}</td>
+                        <td>{{ $data->obats->nama_obat }}</td>
+                        <td>
+                         {{-- detail --}}
+                                        <!-- Button trigger modal -->
+                                        <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $data->id }}">
+                                            <i class="fa fa-circle-info"></i>
+                                        </button>
+
+                            <!-- Modal Detail -->
+                            <div class="modal fade" id="modalDetail{{ $data->id }}" tabindex="-1" aria-labelledby="modalDetailLabel{{ $data->id }}" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="modalDetailLabel{{ $data->id }}">Detail Resep</h5>
+                                            <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <table class="table">
+                                                <tbody>
+                                                    <tr>
+                                                        <td>No Resep</td>
+                                                        <td>: {{ $data->no_resep }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Nama Pasien</td>
+                                                        <td>: {{ $data->pasiens->nama_pasien }}</td>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td>Nama Obat</td>
+                                                        <td>: {{ $data->obats->nama_obat }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Diagnosa</td>
+                                                        <td>: {{ $data->diagnosa }}</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {{-- End Detail --}}
+
+                            <a href="/resep/edit/{{ $data->id }}" class="btn btn-success btn-sm">
                             <i class="fa-solid fa-pen-to-square"></i> 
                         </a>
-
-                        <!-- Button trigger modal -->
+                            <!-- Button trigger modal -->
                         <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal">
                             <i class="fa-solid fa-folder-open"></i>
                         </button>
@@ -63,7 +102,7 @@
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
-                                        Yakin ingin menghapus data obat <strong></strong>?
+                                        Yakin ingin menghapus data resep <strong></strong>?
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
@@ -88,35 +127,6 @@
     </div>
 </div>
 @endsection
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 {{-- @extends('layouts.template')
