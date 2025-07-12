@@ -25,11 +25,9 @@
           <table class="table table-striped">
             <thead>
               <tr>
-                <th>#</th>
+                <th>No</th>
                 <th>Kode Obat</th>
                 <th>Nama Obat</th>
-                <th>Tgl Kadaluarsa</th>
-                <th>Satuan</th>
                 <th>Action</th>
               </tr>
             </thead>
@@ -39,13 +37,39 @@
                     <th scope="row">{{ $nomor++ }}</th>
                     <td>{{ $data->kd_obat }}</td>
                     <td>{{ $data->nama_obat }}</td>
-                    <td>{{ $data->tgl_kadaluarsa }}</td>
-                    <td>{{ $data->satuan }}</td>
-                    
-                    <td class="text-end">
-                        <a href=/obat class="btn btn-warning btn-sm">
-                            <i class="fa fa-circle-info"></i>
-                        </a>
+                    <td>
+                         {{-- detail --}}
+                                        <!-- Button trigger modal -->
+                                        <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $data->id }}">
+                                            <i class="fa fa-circle-info"></i>
+                                        </button>
+
+
+                                        
+
+                                        <!-- Modal -->
+                                        <div class="modal fade" id="exampleModal{{ $data->id }}" tabindex="-1" aria-labelledby="exampleModalLabel{{ $data->id }}" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLabel{{ $data->id }}">Detail Data Obat</h5>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <table class="table">
+                                                            <tr><td>Kode Obat</td><td>: {{ $data->kd_obat }}</td></tr>
+                                                            <tr><td>Nama Obat</td><td>: {{ $data->nama_obat }}</td></tr>
+                                                            <tr><td>Tgl Kadaluarsa</td><td>: {{ $data->tgl_kadaluarsa }}</td></tr>
+                                                            <tr><td>Satuan</td><td>: {{ $data->satuan }}</td></tr>
+                                                        </table>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {{-- end of detail --}}
                         <a href="/obat/edit/{{ $data->id }}" class="btn btn-success btn-sm">
                             <i class="fa-solid fa-pen-to-square"></i> 
                         </a>
@@ -64,7 +88,7 @@
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
-                                        Yakin ingin menghapus Data Obat <strong></strong>?
+                                        Yakin ingin menghapus data obat <strong></strong>?
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
@@ -89,3 +113,5 @@
     </div>
 </div>
 @endsection
+                    
+                    
