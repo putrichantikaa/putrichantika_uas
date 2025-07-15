@@ -15,4 +15,9 @@ class Resep extends Model
     public function obats(){
         return $this->hasOne(Obat::class, 'id', 'obats_id');
     }
+
+    public function pengambilan(){
+        return $this->belongTo(Pengambilan::class);
+    }
+
 }

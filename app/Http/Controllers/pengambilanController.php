@@ -3,15 +3,22 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Resep;
+use App\Models\Pasien; 
+use App\Models\Obat; 
+use App\Models\Pengambilan;
 
-class pengambilanController extends Controller
+class PengambilanController extends Controller
+
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        $nomor = 1;
+        $pengambilan = Pengambilan::with(['resep', 'pasien'])->get();
+        return view('pengambilan.index', compact('pengambilan', 'nomor'));
     }
 
     /**
@@ -19,7 +26,10 @@ class pengambilanController extends Controller
      */
     public function create()
     {
-        //
+        $resep = Resep::all();
+        $pasien = Pasien::all();
+        $pengambilan = Pengambilan::all();
+        return view('pengambilan.tambah', compact('resep', 'pasien'));
     }
 
     /**
@@ -27,7 +37,15 @@ class pengambilanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $pengambilan = new Pengambilan;
+        $pengambilan->reseps_id = $request->resep;
+        $pengambilan->pasiens_id = $request->pasien;
+        $pengambilan->tgl_ambil = $request->tgl_ambil;
+        $pengambilan->keterangan = $request->keterangan;
+
+        $pengambilan->save();
+
+        return redirect('/pengambilan');
     }
 
     /**
@@ -41,24 +59,46 @@ class pengambilanController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
-    {
-        //
-    }
+    public function edit($id)
+{
+    $pengambilan = Pengambilan::findOrFail($id);
+    $resep = Resep::all();
+    $pasien = Pasien::all();
+
+    return view('pengambilan.edit', compact('pengambilans', 'reseps', 'pasiens'));
+}
+
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
+    public function update(Request $request, $id)
+{
+    $request->validate([
+        'reseps_id' => 'required',
+        'pasiens_id' => 'required',
+        'tgl_ambil' => 'required',
+        'keterangan' => 'required'
+    ]);
+
+    $pengambilan = Pengambilan::findOrFail($id);
+    $pengambilan->reseps_id = $request->resep_id;
+    $pengambilan->pasiens_id = $request->pasiens_id;
+    $pengambilan->tgl_ambil = $request->tgl_ambil;
+    $pengambilan->keterangan = $request->keterangan;
+    $pengambilan->save();
+
+    return redirect('/pengambilan')->with('success', 'Pengambilan berhasil diupdate.');
+}
 
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(string $id)
     {
-        //
+        $pengambilan = Pengambilan::find($id);
+        $pengambilan->delete();
+
+        return redirect('/pengambilan');
     }
 }

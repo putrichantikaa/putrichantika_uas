@@ -160,7 +160,7 @@
 
             <!-- Dashboards -->
             <li class="menu-item">
-              <a href="javascript:void(0);" class="menu-link ">
+              <a href="/pengambilan" class="menu-link ">
                <i class="menu-icon tf-icons bx bx-plus-medical"></i>
                 <div class="text-truncate" data-i18n="Dashboards">Pengambilan Obat</div>
               </a>

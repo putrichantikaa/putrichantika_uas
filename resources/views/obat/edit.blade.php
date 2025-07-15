@@ -19,7 +19,7 @@
                         @csrf
                         <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Kode Obat</label>
-                        <input type="text" value="{{ $obat->kd_obat }}" name="kd_obat" class="form-control" id="exampleInputEmail1">
+                        <input type="text" value="{{ $obat->kd_obat }}" name="kd_obat" class="form-control" id="exampleInputEmail1" readonly>
                     </div>
                         <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Nama Obat</label>

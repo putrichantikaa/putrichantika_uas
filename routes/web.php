@@ -5,6 +5,7 @@ use App\Http\Controllers\PasienController;
 use App\Http\Controllers\ObatController;
 use App\Http\Controllers\ResepController;
 use App\Http\Controllers\BerandaController;
+use App\Http\Controllers\PengambilanController;
 
 
 /*
@@ -58,7 +59,15 @@ Route::delete('/obat/{id}', [obatController::class, 'destroy']);
 Route::get('/resep', [resepController::class, 'index']);
 Route::get('/resep/tambah', [resepController::class, 'create']);
 Route::post('/resep', [resepController::class, 'store']);
-Route::get('/resep/edit/{id}', [ResepController::class, 'edit']);
-Route::put('/resep/{id}', [ResepController::class, 'update']);
-Route::delete('/resep/{id}', [ResepController::class, 'destroy']);
+Route::get('/resep/edit/{id}', [resepController::class, 'edit']);
+Route::put('/resep/{id}', [resepController::class, 'update']);
+Route::delete('/resep/{id}', [resepController::class, 'destroy']);
+
+//Data Pengambilan Obat
+Route::get('/pengambilan', [pengambilanController::class, 'index']);
+Route::get('/pengambilan/tambah', [pengambilanController::class, 'create']);
+Route::post('/pengambilan', [pengambilanController::class, 'store']);
+Route::get('/pengambilan/edit/{id}', [pengambilanController::class, 'edit']);
+Route::put('/pengambilan/{id}', [pengambilanController::class, 'update']);
+Route::delete('/pengambilan/{id}', [pengambilanController::class, 'destroy']);
 

@@ -21,7 +21,7 @@
                         @method('PUT')
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">NIK</label>
-                            <input type="text" value="{{ $pasien->nik_pasien }}" name="nik_pasien" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                            <input type="text" value="{{ $pasien->nik_pasien }}" name="nik_pasien" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" readonly>
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputPassword1" class="form-label">Nama Pasien</label>
