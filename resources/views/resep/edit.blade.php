@@ -22,7 +22,7 @@
 
                         <!-- No Resep -->
                         <div class="mb-3">
-                            <label for="no_resep">No Resep</label>
+                            <label for="no_resep">Nomor Resep</label>
                             <input type="text" name="no_resep" class="form-control" value="{{ $resep->no_resep }}">
                         </div>
 

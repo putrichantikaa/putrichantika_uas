@@ -26,9 +26,9 @@
             <thead>
               <tr>
                     <th>No</th>
-                    <th>No Resep</th>
+                    <th>Nomor Resep</th>
                     <th>Nama Pasien</th>
-                    <th>Nama Obat</th>
+                    {{-- <th>Nama Obat</th> --}}
                     <th>Action</th>
                 </tr>
             </thead>
@@ -38,7 +38,7 @@
                         <th scope="row">{{ $nomor++ }}</th>
                         <td>{{ $data->no_resep }}</td>
                         <td>{{ $data->pasiens->nama_pasien }}</td>
-                        <td>{{ $data->obats->nama_obat }}</td>
+                        {{-- <td>{{ $data->obats->nama_obat }}</td> --}}
                         <td>
                             {{-- Detail Button --}}
                             <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalDetail{{ $data->id }}">
@@ -57,7 +57,7 @@
                                             <table class="table">
                                                 <tbody>
                                                     <tr>
-                                                        <td>No Resep</td>
+                                                        <td>Nomor Resep</td>
                                                         <td>: {{ $data->no_resep }}</td>
                                                     </tr>
                                                     <tr>
@@ -98,20 +98,20 @@
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h1 class="modal-title fs-5" id="deleteModalLabel{{ $data->id }}">Peringatan</h1>
+                                            <h1 class="modal-title fs-5" id="deleteModalLabel">Peringatan</h1>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
-                                            Yakin ingin menghapus data resep <strong>{{ $data->no_resep }}</strong>?
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                                            <form action="{{ url('/resep/' . $data->id) }}" method="POST">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit" class="btn btn-danger">Hapus</button>
-                                            </form>
-                                        </div>
+                                        Yakin ingin menghapus data resep <strong>{{ $data->no_resep }}</strong>?
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                                        <form action="{{ url('/resep/' . $data->id) }}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-danger">Hapus</button>
+                                        </form>
+                                    </div>
                                     </div>
                                 </div>
                             </div>
