@@ -63,7 +63,7 @@
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
-                                        Yakin ingin menghapus data pengambilan obat <strong>{{ $data->pasien->nama_pasien }}</strong>?
+                                        Yakin ingin menghapus data pengambilan obat <strong>{{ $data->pasien?->nama_pasien ?? '-' }}</strong>?
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>

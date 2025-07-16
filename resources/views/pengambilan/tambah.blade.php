@@ -19,7 +19,7 @@
                         @csrf
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Nomor Resep</label>
-                            <select name="resep" id="" class="form-control">
+                            <select name="reseps_id" id="" class="form-control">
                                         <option value="">-Pilih-</option>
                                         @foreach ($resep as $r)
                                             <option value="{{$r->id}}">{{$r->no_resep}}</option>
@@ -29,7 +29,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputPassword1" class="form-label">Nama Pasien</label>
-                            <select name="pasien" id="" class="form-control">
+                            <select name="pasiens_id" id="" class="form-control">
                                         <option value="">-Pilih-</option>
                                         @foreach ($pasien as $p)
                                             <option value="{{$p->id}}">{{$p->nama_pasien}}</option>

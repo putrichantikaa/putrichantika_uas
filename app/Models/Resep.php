@@ -9,15 +9,11 @@ class Resep extends Model
 {
     use HasFactory;
     public function pasiens(){
-        return $this->hasOne(Pasien::class, 'id', 'pasiens_id');
+        return $this->belongsTo(Pasien::class, 'id', 'pasiens_id');
     }
 
     public function obats(){
-        return $this->hasOne(Obat::class, 'id', 'obats_id');
-    }
-
-    public function pengambilan(){
-        return $this->belongTo(Pengambilan::class);
+        return $this->belongsTo(Obat::class,'obats_id', 'id' );
     }
 
 }

@@ -15,27 +15,38 @@
                 <div class="card-header">Form Edit Data Obat</div>
 
                 <div class="card-body">
-                    <form method="post" action="/pengambilan" enctype="multipart/form-data">
+                    <form method="post" action="/pengambilan/{{ $pengambilan->id }}" enctype="multipart/form-data">
                         @csrf
+                         @method('PUT')
                         <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Nomor Pasien</label>
-                        <input type="text" value="{{ $data->pasien->nama_pasien }}" name="kd_obat" class="form-control" id="exampleInputEmail1" readonly>
-                    </div>
+                            <label for="reseps_id">Nomor Resep</label>
+                            <select name="reseps_id" class="form-control">
+                                <option value="">- Pilih Nomor Pasien -</option>
+                                @foreach($reseps as $r)
+                                    <option value="{{ $r->id }}" {{ $pengambilan->reseps_id == $r->id ? 'selected' : '' }}>
+                                        {{ $r->no_resep }}
+                                    </option>
+                                @endforeach
+                            </select>
+                        </div>
                         <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Nama Pasien</label>
-                        <input type="text" value="{{ $data->pasien->nama_pasien }}" name="nama_obat" class="form-control" id="exampleInputEmail1">
-                    </div>
+                            <label for="pasiens_id">Nama Pasien</label>
+                            <select name="pasiens_id" class="form-control">
+                                <option value="">- Pilih Pasien -</option>
+                                @foreach($pasiens as $pasien)
+                                    <option value="{{ $pasien->id }}" {{ $pengambilan->pasiens_id == $pasien->id ? 'selected' : '' }}>
+                                        {{ $pasien->nama_pasien }}
+                                    </option>
+                                @endforeach
+                            </select>
+                        </div>
                         <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Tgl Pengambilan</label>
-                        <input type="text" value="{{ $obat->tgl_kadaluarsa }}" name="tgl_kadaluarsa" class="form-control" id="exampleInputEmail1">
+                        <input type="date" value="{{$pengambilan->tgl_ambil}}" name="tgl_ambil" class="form-control" id="exampleInputEmail1">
                     </div>
                         <div class="mb-3">
                             <label for="exampleInputPassword1" class="form-label">Keterangan</label>
-                            <select name="satuan" $id="" class="form-control">
-                                <option value="{{$obat->satuan}}">{{$obat->satuan}}</option>
-                                <option value="Tablet">Tablet</option>
-                                <option value="Botol">Botol</option>
-                            </select>
+                            <input type="text" value="{{$pengambilan->keterangan}}" name="keterangan" class="form-control" id="exampleInputEmail1">
                         </div>
 
 

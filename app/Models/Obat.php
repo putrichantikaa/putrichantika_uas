@@ -11,6 +11,8 @@ class Obat extends Model
     protected $table = 'obats';
 
     public function reseps(){
-        return $this->belongTo(Resep::class);
+        return $this->hasMany(Resep::class,'obats_id');
     }
+
+    
 }

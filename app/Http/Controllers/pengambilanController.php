@@ -38,8 +38,8 @@ class PengambilanController extends Controller
     public function store(Request $request)
     {
         $pengambilan = new Pengambilan;
-        $pengambilan->reseps_id = $request->resep;
-        $pengambilan->pasiens_id = $request->pasien;
+        $pengambilan->reseps_id = $request->reseps_id;
+        $pengambilan->pasiens_id = $request->pasiens_id;
         $pengambilan->tgl_ambil = $request->tgl_ambil;
         $pengambilan->keterangan = $request->keterangan;
 
@@ -62,10 +62,10 @@ class PengambilanController extends Controller
     public function edit($id)
 {
     $pengambilan = Pengambilan::findOrFail($id);
-    $resep = Resep::all();
-    $pasien = Pasien::all();
+    $reseps = Resep::all();
+    $pasiens = Pasien::all();
 
-    return view('pengambilan.edit', compact('pengambilans', 'reseps', 'pasiens'));
+    return view('pengambilan.edit', compact('pengambilan', 'reseps', 'pasiens'));
 }
 
 
@@ -82,7 +82,7 @@ class PengambilanController extends Controller
     ]);
 
     $pengambilan = Pengambilan::findOrFail($id);
-    $pengambilan->reseps_id = $request->resep_id;
+    $pengambilan->reseps_id = $request->reseps_id;
     $pengambilan->pasiens_id = $request->pasiens_id;
     $pengambilan->tgl_ambil = $request->tgl_ambil;
     $pengambilan->keterangan = $request->keterangan;

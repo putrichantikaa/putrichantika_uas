@@ -37,7 +37,8 @@
                     <tr>
                         <th scope="row">{{ $nomor++ }}</th>
                         <td>{{ $data->no_resep }}</td>
-                        <td>{{ $data->pasiens->nama_pasien }}</td>
+                        <td>{{ $data->nama_pasien}}</td>
+                        {{-- <td>{{ $data->pasien?->nama_pasien ?? '-' }}</td> --}}
                         {{-- <td>{{ $data->obats->nama_obat }}</td> --}}
                         <td>
                             {{-- Detail Button --}}
@@ -60,13 +61,13 @@
                                                         <td>Nomor Resep</td>
                                                         <td>: {{ $data->no_resep }}</td>
                                                     </tr>
-                                                    <tr>
+                                                    {{-- <tr>
                                                         <td>Nama Pasien</td>
-                                                        <td>: {{ $data->pasiens->nama_pasien }}</td>
-                                                    </tr>
+                                                        <td>:{{optional ($data->pasien)->nama_pasien }}</td>
+                                                    </tr> --}}
                                                     <tr>
                                                         <td>Nama Obat</td>
-                                                        <td>: {{ $data->obats->nama_obat }}</td>
+                                                        <td>: {{optional ($data->obat)->nama_obat }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>Diagnosa</td>
@@ -102,7 +103,7 @@
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
-                                        Yakin ingin menghapus data resep <strong>{{ $data->pasiens->nama_pasien }}</strong>?
+                                        Yakin ingin menghapus data resep <strong>{{optional ($data->resep)->no_resep }}</strong>?
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>

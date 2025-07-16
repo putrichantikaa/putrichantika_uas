@@ -11,7 +11,11 @@ class Pasien extends Model
     protected $table = 'pasiens';
 
     public function reseps(){
-        return $this->belongTo(Resep::class);
+        return $this->hasMany(Resep::class);
+    }
+
+    public function pengambilan(){
+        return $this->hasMany(Pengambilan::class);
     }
 
     protected $fillable = ['nik_pasien', 'nama_pasien', 'tgl_lahir', 'no_hp', 'alamat'];

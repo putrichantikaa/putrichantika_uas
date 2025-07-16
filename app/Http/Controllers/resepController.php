@@ -27,6 +27,7 @@ class ResepController extends Controller
     {
         $pasien = Pasien::all();
         $obat = Obat::all();
+        $resep = Resep::all();
         return view('resep.tambah', compact('pasien', 'obat'));
     }
 
@@ -37,6 +38,7 @@ class ResepController extends Controller
     {
         $resep = new Resep;
         $resep->no_resep = $request->no_resep;
+        $resep->nama_pasien = $request->nama_pasien;
         $resep->pasiens_id = $request->pasien;
         $resep->obats_id = $request->obat;
         $resep->diagnosa = $request->diagnosa;
