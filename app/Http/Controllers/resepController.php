@@ -4,12 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Resep;
-use App\Models\Pasien; 
-use App\Models\Obat; 
+use App\Models\Pasien;
+use App\Models\Obat;
 use App\Models\Pengambilan;
 
 class ResepController extends Controller
-
 {
     /**
      * Display a listing of the resource.
@@ -42,7 +41,6 @@ class ResepController extends Controller
         $resep->pasiens_id = $request->pasiens_id;
         $resep->obats_id = $request->obats_id;
         $resep->diagnosa = $request->diagnosa;
-
         $resep->save();
 
         return redirect('/resep');
@@ -60,36 +58,35 @@ class ResepController extends Controller
      * Show the form for editing the specified resource.
      */
     public function edit($id)
-{
-    $resep = Resep::findOrFail($id);
-    $pasiens = Pasien::all();
-    $obats = Obat::all();
+    {
+        $resep = Resep::findOrFail($id);
+        $pasiens = Pasien::all();
+        $obats = Obat::all();
 
-    return view('resep.edit', compact('resep', 'pasiens', 'obats'));
-}
-
+        return view('resep.edit', compact('resep', 'pasiens', 'obats'));
+    }
 
     /**
      * Update the specified resource in storage.
      */
     public function update(Request $request, $id)
-{
-    $request->validate([
-        'no_resep' => 'required',
-        'pasiens_id' => 'required',
-        'obats_id' => 'required',
-        'diagnosa' => 'required'
-    ]);
+    {
+        $request->validate([
+            'no_resep' => 'required',
+            'pasiens_id' => 'required',
+            'obats_id' => 'required',
+            'diagnosa' => 'required'
+        ]);
 
-    $resep = Resep::findOrFail($id);
-    $resep->no_resep = $request->no_resep;
-    $resep->pasiens_id = $request->pasiens_id;
-    $resep->obats_id = $request->obats_id;
-    $resep->diagnosa = $request->diagnosa;
-    $resep->save();
+        $resep = Resep::findOrFail($id);
+        $resep->no_resep = $request->no_resep;
+        $resep->pasiens_id = $request->pasiens_id;
+        $resep->obats_id = $request->obats_id;
+        $resep->diagnosa = $request->diagnosa;
+        $resep->save();
 
-    return redirect('/resep')->with('success', 'Resep berhasil diupdate.');
-}
+        return redirect('/resep')->with('success', 'Resep berhasil diupdate.');
+    }
 
     /**
      * Remove the specified resource from storage.

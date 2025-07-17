@@ -1,4 +1,5 @@
 @extends('layouts.template')
+
 @section('title')
     Halaman Data Resep
 @endsection
@@ -23,21 +24,22 @@
                         </div>
 
                         <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Nama Pasien</label>
-                            <select name="pasiens_id" id="" class="form-control">
-                                        <option value="">-Pilih Nama Pasien-</option>
-                                        @foreach ($pasien as $p)
-                                            <option value="{{$p->id}}">{{$p->nama_pasien}}</option>
-                                        @endforeach
+                            <label for="pasiens_id" class="form-label">Nama Pasien</label>
+                            <select name="pasiens_id" id="pasiens_id" class="form-control">
+                                <option value="">-Pilih Nama Pasien-</option>
+                                @foreach ($pasien as $p)
+                                    <option value="{{ $p->id }}">{{ $p->nama_pasien }}</option>
+                                @endforeach
                             </select>
                         </div>
+
                         <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Nama Obat</label>
-                            <select name="obats_id" id="" class="form-control">
-                                        <option value="">-Pilih Nama Obat-</option>
-                                        @foreach ($obat as $o)
-                                            <option value="{{$o->id}}">{{$o->nama_obat}}</option>
-                                        @endforeach
+                            <label for="obats_id" class="form-label">Nama Obat</label>
+                            <select name="obats_id" id="obats_id" class="form-control">
+                                <option value="">-Pilih Nama Obat-</option>
+                                @foreach ($obat as $o)
+                                    <option value="{{ $o->id }}">{{ $o->nama_obat }}</option>
+                                @endforeach
                             </select>
                         </div>
 

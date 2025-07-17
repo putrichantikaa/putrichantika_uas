@@ -1,4 +1,5 @@
 @extends('layouts.template')
+
 @section('title')
     Halaman Data Resep
 @endsection
@@ -6,7 +7,6 @@
 @section('headline')
     DATA RESEP
 @endsection
-
 
 @section('content')
 <div class="container">
@@ -18,18 +18,18 @@
                 <div class="card-body">
                     <form method="post" action="/resep/{{ $resep->id }}" enctype="multipart/form-data">
                         @csrf
-                         @method('PUT')
+                        @method('PUT')
 
                         <!-- No Resep -->
                         <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Nomor Resep</label>
-                            <input type="text" value="{{$resep->no_resep}}" name="no_resep" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" readonly>
+                            <label for="no_resep" class="form-label">Nomor Resep</label>
+                            <input type="text" value="{{ $resep->no_resep }}" name="no_resep" class="form-control" id="no_resep" readonly>
                         </div>
 
                         <!-- Nama Pasien -->
                         <div class="mb-3">
                             <label for="pasiens_id">Nama Pasien</label>
-                            <select name="pasiens_id" class="form-control">
+                            <select name="pasiens_id" class="form-control" id="pasiens_id">
                                 <option value="">- Pilih Nama Pasien -</option>
                                 @foreach($pasiens as $p)
                                     <option value="{{ $p->id }}" {{ $resep->pasiens_id == $p->id ? 'selected' : '' }}>
@@ -42,7 +42,7 @@
                         <!-- Nama Obat -->
                         <div class="mb-3">
                             <label for="obats_id">Nama Obat</label>
-                            <select name="obats_id" class="form-control">
+                            <select name="obats_id" class="form-control" id="obats_id">
                                 <option value="">- Pilih Nama Obat -</option>
                                 @foreach($obats as $o)
                                     <option value="{{ $o->id }}" {{ $resep->obats_id == $o->id ? 'selected' : '' }}>
@@ -54,13 +54,12 @@
 
                         <!-- Diagnosa -->
                         <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Diagnosa</label>
-                            <input type="text" value="{{$resep->diagnosa}}" name="diagnosa" class="form-control" id="exampleInputEmail1">
+                            <label for="diagnosa" class="form-label">Diagnosa</label>
+                            <input type="text" value="{{ $resep->diagnosa }}" name="diagnosa" class="form-control" id="diagnosa">
                         </div>
 
                         <button type="submit" class="btn btn-primary">Update</button>
                     </form>
-
                 </div>
             </div>
         </div>

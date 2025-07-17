@@ -4,22 +4,21 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Resep;
-use App\Models\Pasien; 
-use App\Models\Obat; 
+use App\Models\Pasien;
+use App\Models\Obat;
 use App\Models\Pengambilan;
 
 class PasienController extends Controller
-
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //menampilkan data pasien
+        // menampilkan data pasien
         $nomor = 1;
         $pasien = Pasien::all();
-        return view('pasien.index',compact('pasien','nomor'));
+        return view('pasien.index', compact('pasien', 'nomor'));
     }
 
     /**
@@ -36,7 +35,7 @@ class PasienController extends Controller
      */
     public function store(Request $request)
     {
-        //proses tambah
+        // proses tambah
         $pasien = new Pasien;
         $pasien->nik_pasien = $request->nik_pasien;
         $pasien->nama_pasien = $request->nama_pasien;
@@ -70,7 +69,7 @@ class PasienController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //proses edit
+        // proses edit
         $pasien = Pasien::find($id);
         $pasien->nik_pasien = $request->nik_pasien;
         $pasien->nama_pasien = $request->nama_pasien;
@@ -78,7 +77,6 @@ class PasienController extends Controller
         $pasien->no_hp = $request->no_hp;
         $pasien->alamat = $request->alamat;
         $pasien->save();
-
 
         return redirect('/pasien');
     }

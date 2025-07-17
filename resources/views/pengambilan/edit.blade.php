@@ -1,4 +1,5 @@
 @extends('layouts.template')
+
 @section('title')
     Halaman Data Pengambilan Obat
 @endsection
@@ -17,7 +18,9 @@
                 <div class="card-body">
                     <form method="post" action="/pengambilan/{{ $pengambilan->id }}" enctype="multipart/form-data">
                         @csrf
-                         @method('PUT')
+                        @method('PUT')
+
+                        <!-- Nomor Resep -->
                         <div class="mb-3">
                             <label for="reseps_id">Nomor Resep</label>
                             <select name="reseps_id" class="form-control">
@@ -29,6 +32,8 @@
                                 @endforeach
                             </select>
                         </div>
+
+                        <!-- Nama Pasien -->
                         <div class="mb-3">
                             <label for="pasiens_id">Nama Pasien</label>
                             <select name="pasiens_id" class="form-control">
@@ -40,22 +45,28 @@
                                 @endforeach
                             </select>
                         </div>
+
+                        <!-- Tanggal Pengambilan -->
                         <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Tgl Pengambilan</label>
-                        <input type="date" value="{{$pengambilan->tgl_ambil}}" name="tgl_ambil" class="form-control" id="exampleInputEmail1">
-                    </div>
+                            <label for="tgl_ambil" class="form-label">Tgl Pengambilan</label>
+                            <input type="date" value="{{ $pengambilan->tgl_ambil }}" name="tgl_ambil" class="form-control" id="tgl_ambil">
+                        </div>
+
+                        <!-- Keterangan -->
                         <div class="mb-3">
-                            <label for="exampleInputPassword1" class="form-label">Keterangan</label>
-                            <select value="{{$pengambilan->keterangan}}" name="keterangan" class="form-control">
-                                <option value="keterangan">- Pilih Keterangan-</option>
-                                <option value="Sudah Diambil"> Sudah Diambil</option>
-                                <option value="Belum Diambil"> Belum Diambil</option>
-                               
+                            <label for="keterangan" class="form-label">Keterangan</label>
+                            <select name="keterangan" class="form-control">
+                                <option value="">- Pilih Keterangan -</option>
+                                <option value="Sudah Diambil" {{ $pengambilan->keterangan == 'Sudah Diambil' ? 'selected' : '' }}>
+                                    Sudah Diambil
+                                </option>
+                                <option value="Belum Diambil" {{ $pengambilan->keterangan == 'Belum Diambil' ? 'selected' : '' }}>
+                                    Belum Diambil
+                                </option>
                             </select>
                         </div>
 
-
-                         <button type="submit" class="btn btn-primary">Edit</button>
+                        <button type="submit" class="btn btn-primary">Edit</button>
                     </form>
                 </div>
             </div>
@@ -63,6 +74,3 @@
     </div>
 </div>
 @endsection
-
-
-

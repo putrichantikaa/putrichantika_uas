@@ -4,12 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Resep;
-use App\Models\Pasien; 
-use App\Models\Obat; 
+use App\Models\Pasien;
+use App\Models\Obat;
 use App\Models\Pengambilan;
 
 class PengambilanController extends Controller
-
 {
     /**
      * Display a listing of the resource.
@@ -42,7 +41,6 @@ class PengambilanController extends Controller
         $pengambilan->pasiens_id = $request->pasiens_id;
         $pengambilan->tgl_ambil = $request->tgl_ambil;
         $pengambilan->keterangan = $request->keterangan;
-
         $pengambilan->save();
 
         return redirect('/pengambilan');
@@ -60,36 +58,35 @@ class PengambilanController extends Controller
      * Show the form for editing the specified resource.
      */
     public function edit($id)
-{
-    $pengambilan = Pengambilan::findOrFail($id);
-    $reseps = Resep::all();
-    $pasiens = Pasien::all();
+    {
+        $pengambilan = Pengambilan::findOrFail($id);
+        $reseps = Resep::all();
+        $pasiens = Pasien::all();
 
-    return view('pengambilan.edit', compact('pengambilan', 'reseps', 'pasiens'));
-}
-
+        return view('pengambilan.edit', compact('pengambilan', 'reseps', 'pasiens'));
+    }
 
     /**
      * Update the specified resource in storage.
      */
     public function update(Request $request, $id)
-{
-    $request->validate([
-        'reseps_id' => 'required',
-        'pasiens_id' => 'required',
-        'tgl_ambil' => 'required',
-        'keterangan' => 'required'
-    ]);
+    {
+        $request->validate([
+            'reseps_id' => 'required',
+            'pasiens_id' => 'required',
+            'tgl_ambil' => 'required',
+            'keterangan' => 'required'
+        ]);
 
-    $pengambilan = Pengambilan::findOrFail($id);
-    $pengambilan->reseps_id = $request->reseps_id;
-    $pengambilan->pasiens_id = $request->pasiens_id;
-    $pengambilan->tgl_ambil = $request->tgl_ambil;
-    $pengambilan->keterangan = $request->keterangan;
-    $pengambilan->save();
+        $pengambilan = Pengambilan::findOrFail($id);
+        $pengambilan->reseps_id = $request->reseps_id;
+        $pengambilan->pasiens_id = $request->pasiens_id;
+        $pengambilan->tgl_ambil = $request->tgl_ambil;
+        $pengambilan->keterangan = $request->keterangan;
+        $pengambilan->save();
 
-    return redirect('/pengambilan')->with('success', 'Pengambilan Obat berhasil diupdate.');
-}
+        return redirect('/pengambilan')->with('success', 'Pengambilan Obat berhasil diupdate.');
+    }
 
     /**
      * Remove the specified resource from storage.

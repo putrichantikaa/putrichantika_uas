@@ -4,22 +4,21 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Resep;
-use App\Models\Pasien; 
-use App\Models\Obat; 
+use App\Models\Pasien;
+use App\Models\Obat;
 use App\Models\Pengambilan;
 
 class ObatController extends Controller
-
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //menampilkan data obat
+        // menampilkan data obat
         $nomor = 1;
         $obat = Obat::all();
-        return view('obat.index',compact('obat','nomor'));
+        return view('obat.index', compact('obat', 'nomor'));
     }
 
     /**
@@ -27,7 +26,7 @@ class ObatController extends Controller
      */
     public function create()
     {
-         // menampilkan form tambah
+        // menampilkan form tambah
         return view('obat.tambah');
     }
 
@@ -36,7 +35,7 @@ class ObatController extends Controller
      */
     public function store(Request $request)
     {
-        //proses tambah
+        // proses tambah
         $obat = new Obat;
         $obat->kd_obat = $request->kd_obat;
         $obat->nama_obat = $request->nama_obat;
@@ -52,7 +51,7 @@ class ObatController extends Controller
      */
     public function show(string $id)
     {
-        //
+        // kosong
     }
 
     /**
@@ -69,14 +68,13 @@ class ObatController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //proses edit
+        // proses edit
         $obat = Obat::find($id);
         $obat->kd_obat = $request->kd_obat;
         $obat->nama_obat = $request->nama_obat;
         $obat->tgl_kadaluarsa = $request->tgl_kadaluarsa;
         $obat->satuan = $request->satuan;
         $obat->save();
-
 
         return redirect('/obat');
     }
