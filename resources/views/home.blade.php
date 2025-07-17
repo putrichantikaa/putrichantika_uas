@@ -1,49 +1,89 @@
 @extends('layouts.template')
 
 @section('title')
+    Halaman Dashboard
+@endsection
+
+@section('headline')
     Dashboard
 @endsection
 
 @section('content')
-<div class="min-h-screen flex bg-[#f9f9f9] text-gray-800">
-
-    <!-- Sidebar -->
-    <aside class="w-64 bg-[#f0f0f0] p-6 border-r border-gray-200">
-        <h2 class="text-xl font-semibold mb-6">Menu</h2>
-        <nav class="space-y-4">
-            <a href="#" class="block text-gray-600 hover:text-gray-900">Dashboard</a>
-            <a href="#" class="block text-gray-600 hover:text-gray-900">Pengguna</a>
-            <a href="#" class="block text-gray-600 hover:text-gray-900">Laporan</a>
-            <a href="#" class="block text-gray-600 hover:text-gray-900">Pengaturan</a>
-        </nav>
-    </aside>
-
-    <!-- Main Content -->
-    <main class="flex-1 p-10">
-        <div class="mb-8">
-            <h1 class="text-3xl font-bold">Selamat Datang, Admin 👋</h1>
-            <p class="text-gray-500 mt-1">Semoga harimu tenang dan produktif ✨</p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <!-- Card 1 -->
-            <div class="bg-white rounded-lg p-6 shadow-sm border border-gray-100 hover:shadow-md transition">
-                <p class="text-sm text-gray-500">Total Pengguna</p>
-                <h3 class="text-3xl font-bold text-gray-700 mt-2">1,234</h3>
+    {{-- Section Ucapan Selamat --}}
+    <div class="card mb-4 border-0 shadow-sm" style="background-color: #f5f7fb;">
+        <div class="card-body d-flex justify-content-between align-items-center">
+            <div>
+                <h5 class="text-primary fw-bold">🎉 Hello Admin!</h5>
+                <p class="mb-2"><strong>Selamat datang kembali! </strong> Semoga hari ini penuh produktivitas dan keberhasilan.</p>
             </div>
-
-            <!-- Card 2 -->
-            <div class="bg-white rounded-lg p-6 shadow-sm border border-gray-100 hover:shadow-md transition">
-                <p class="text-sm text-gray-500">Transaksi Hari Ini</p>
-                <h3 class="text-3xl font-bold text-gray-700 mt-2">98</h3>
-            </div>
-
-            <!-- Card 3 -->
-            <div class="bg-white rounded-lg p-6 shadow-sm border border-gray-100 hover:shadow-md transition">
-                <p class="text-sm text-gray-500">Notifikasi Baru</p>
-                <h3 class="text-3xl font-bold text-gray-700 mt-2">7</h3>
+            <div>
+                <img src="https://img.freepik.com/free-vector/working-concept-illustration_114360-2143.jpg?w=740" alt="Person with laptop" width="120">
             </div>
         </div>
-    </main>
+    </div>
+
+    {{-- Section Cards: Profit & Sales --}}
+    <div class="d-flex justify-content-center">
+    <div class="row w-100 justify-content-center">
+        <div class="col-lg-3 col-md-6 mb-3">
+            <div class="card border-start border-danger border-4 shadow-sm">
+                <div class="card-body">
+                    <h6 class="text-muted fw-bold">Data Pasien</h6>
+                    <h3 class="mb-1 text-primary">3</h3>
+                    <span class="text-success"><i class="fas fa-arrow-up"></i> Completed</span>
+                    <div class="d-flex justify-content-end mt-3">
+                        <a href="/pasien" class="btn btn-sm btn-primary">
+                            <i class="fas fa-info-circle me-1"></i> Lihat Detail
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-6 mb-3">
+            <div class="card border-start border-warning border-4 shadow-sm">
+                <div class="card-body">
+                    <h6 class="text-muted fw-bold">Data Obat</h6>
+                    <h3 class="mb-1 text-danger">5</h3>
+                    <span class="text-success"><i class="fas fa-arrow-up"></i> Completed</span>
+                    <div class="d-flex justify-content-end mt-3">
+                        <a href="/obat" class="btn btn-sm btn-success">
+                            <i class="fas fa-info-circle me-1"></i> Lihat Detail
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-6 mb-3">
+            <div class="card border-start border-success border-4 shadow-sm">
+                <div class="card-body">
+                    <h6 class="text-muted fw-bold">Data Resep</h6>
+                    <h3 class="mb-1 text-warning">3</h3>
+                    <span class="text-success"><i class="fas fa-arrow-up"></i> Completed</span>
+                    <div class="d-flex justify-content-end mt-3">
+                        <a href="/resep" class="btn btn-sm btn-warning">
+                            <i class="fas fa-info-circle me-1"></i> Lihat Detail
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-3">
+            <div class="card border-start border-primary border-4 shadow-sm">
+                <div class="card-body">
+                    <h6 class="text-muted fw-bold">Data Pengambilan Obat</h6>
+                    <h3 class="mb-1 text-success">3</h3>
+                    <span class="text-success"><i class="fas fa-arrow-up"></i> Completed</span>
+                    <div class="d-flex justify-content-end mt-3">
+                        <a href="/pengambilan" class="btn btn-sm btn-danger">
+                            <i class="fas fa-info-circle me-1"></i> Lihat Detail
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+
+
+
 @endsection
