@@ -1,54 +1,49 @@
 @extends('layouts.template')
-@section('title')
-    Halaman Dashboard
-@endsection
 
-@section('headline')
+@section('title')
     Dashboard
 @endsection
 
 @section('content')
-    <div class="card col-11 px-4 center">
-        <div clas="card-header">
-          <h3 class="card-title">Title</h3>
+<div class="min-h-screen flex bg-[#f9f9f9] text-gray-800">
 
-          <div class="card-tools">
-            <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-              <i class="fas fa-minus"></i>
-            </button>
-            <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
-              <i class="fas fa-times"></i>
-            </button>
-          </div>
+    <!-- Sidebar -->
+    <aside class="w-64 bg-[#f0f0f0] p-6 border-r border-gray-200">
+        <h2 class="text-xl font-semibold mb-6">Menu</h2>
+        <nav class="space-y-4">
+            <a href="#" class="block text-gray-600 hover:text-gray-900">Dashboard</a>
+            <a href="#" class="block text-gray-600 hover:text-gray-900">Pengguna</a>
+            <a href="#" class="block text-gray-600 hover:text-gray-900">Laporan</a>
+            <a href="#" class="block text-gray-600 hover:text-gray-900">Pengaturan</a>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 p-10">
+        <div class="mb-8">
+            <h1 class="text-3xl font-bold">Selamat Datang, Admin 👋</h1>
+            <p class="text-gray-500 mt-1">Semoga harimu tenang dan produktif ✨</p>
         </div>
-        <div class="card-body">
-          Selamat Datang Admin, semoga harimu menyenangkan
-        </div>
-        <!-- /.card-body -->
-        <div class="card-footer">
-          Footer
-        </div>
-@endsection
-{{-- @extends('layouts.app')
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Card 1 -->
+            <div class="bg-white rounded-lg p-6 shadow-sm border border-gray-100 hover:shadow-md transition">
+                <p class="text-sm text-gray-500">Total Pengguna</p>
+                <h3 class="text-3xl font-bold text-gray-700 mt-2">1,234</h3>
+            </div>
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+            <!-- Card 2 -->
+            <div class="bg-white rounded-lg p-6 shadow-sm border border-gray-100 hover:shadow-md transition">
+                <p class="text-sm text-gray-500">Transaksi Hari Ini</p>
+                <h3 class="text-3xl font-bold text-gray-700 mt-2">98</h3>
+            </div>
 
-                    {{ __('You are logged in!') }}
-                </div>
+            <!-- Card 3 -->
+            <div class="bg-white rounded-lg p-6 shadow-sm border border-gray-100 hover:shadow-md transition">
+                <p class="text-sm text-gray-500">Notifikasi Baru</p>
+                <h3 class="text-3xl font-bold text-gray-700 mt-2">7</h3>
             </div>
         </div>
-    </div>
+    </main>
 </div>
-@endsection --}}
+@endsection
