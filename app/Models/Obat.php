@@ -7,12 +7,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class Obat extends Model
 {
+    
     use HasFactory;
-    protected $table = 'obats';
+        protected $table = 'obats';
 
     public function reseps(){
-        return $this->hasMany(Resep::class,'obats_id');
-    }
+        return $this->hansMany(Resep::class,'obats_id');
+    }   
 
-    
 }
+    
+    
+    
+

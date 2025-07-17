@@ -38,7 +38,6 @@ class ResepController extends Controller
     {
         $resep = new Resep;
         $resep->no_resep = $request->no_resep;
-        $resep->nama_pasien = $request->nama_pasien;
         $resep->pasiens_id = $request->pasien;
         $resep->obats_id = $request->obat;
         $resep->diagnosa = $request->diagnosa;

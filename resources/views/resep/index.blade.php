@@ -37,8 +37,7 @@
                     <tr>
                         <th scope="row">{{ $nomor++ }}</th>
                         <td>{{ $data->no_resep }}</td>
-                        <td>{{ $data->nama_pasien}}</td>
-                        {{-- <td>{{ $data->pasien?->nama_pasien ?? '-' }}</td> --}}
+                        <td>{{optional ($data->pasien)->nama_pasien }}</td>
                         {{-- <td>{{ $data->obats->nama_obat }}</td> --}}
                         <td>
                             {{-- Detail Button --}}
@@ -57,14 +56,14 @@
                                         <div class="modal-body">
                                             <table class="table">
                                                 <tbody>
-                                                    <tr>
-                                                        <td>Nomor Resep</td>
+                                                    <tr> 
+                                                        {{-- <td>Nomor Resep</td>--}}
                                                         <td>: {{ $data->no_resep }}</td>
                                                     </tr>
-                                                    {{-- <tr>
+                                                    <tr>
                                                         <td>Nama Pasien</td>
                                                         <td>:{{optional ($data->pasien)->nama_pasien }}</td>
-                                                    </tr> --}}
+                                                    </tr>
                                                     <tr>
                                                         <td>Nama Obat</td>
                                                         <td>: {{optional ($data->obat)->nama_obat }}</td>
@@ -74,8 +73,9 @@
                                                         <td>: {{ $data->diagnosa }}</td>
                                                     </tr>
                                                 </tbody>
-                                            </table>
-                                        </div>
+                                            </table> 
+                                            
+                                        {{-- </div>--}}
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
                                         </div>

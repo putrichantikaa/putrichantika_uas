@@ -46,7 +46,12 @@
                     </div>
                         <div class="mb-3">
                             <label for="exampleInputPassword1" class="form-label">Keterangan</label>
-                            <input type="text" value="{{$pengambilan->keterangan}}" name="keterangan" class="form-control" id="exampleInputEmail1">
+                            <select value="{{$pengambilan->keterangan}}" name="keterangan" class="form-control">
+                                <option value="keterangan">- Pilih Keterangan-</option>
+                                <option value="Sudah Diambil">- Sudah Diambil-</option>
+                                <option value="Belum Diambil">- Belum Diambil-</option>
+                               
+                            </select>
                         </div>
 
 

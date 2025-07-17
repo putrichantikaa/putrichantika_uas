@@ -14,6 +14,6 @@ class Resep extends Model
 
     public function obats(){
         return $this->belongsTo(Obat::class,'obats_id', 'id' );
-    }
+    }   
 
 }
