@@ -10,7 +10,7 @@ class Pasien extends Model
     use HasFactory;
     protected $table = 'pasiens';
 
-    public function reseps(){
+    public function resep(){
         return $this->hasMany(Resep::class);
     }
 

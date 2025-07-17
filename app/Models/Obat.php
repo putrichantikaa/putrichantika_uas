@@ -11,7 +11,7 @@ class Obat extends Model
     use HasFactory;
         protected $table = 'obats';
 
-    public function reseps(){
+    public function resep(){
         return $this->hansMany(Resep::class,'obats_id');
     }   
 

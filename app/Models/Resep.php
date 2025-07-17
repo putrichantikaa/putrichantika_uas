@@ -8,12 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Resep extends Model
 {
     use HasFactory;
-    public function pasiens(){
-        return $this->belongsTo(Pasien::class, 'id', 'pasiens_id');
+
+    public function pasien(){
+        return $this->belongsTo(Pasien::class, 'pasiens_id');
     }
 
-    public function obats(){
-        return $this->belongsTo(Obat::class,'obats_id', 'id' );
+    public function obat(){
+        return $this->belongsTo(Obat::class, 'obats_id');
     }   
-
 }

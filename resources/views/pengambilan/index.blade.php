@@ -51,7 +51,7 @@
 
                         <!-- Button trigger modal -->
                         <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal{{$data->id}}">
-                            <i class="fa-solid fa-folder-open"></i>
+                            <i class="fa-solid fa-trash"></i>
                         </button>
 
                         <!-- Modal -->

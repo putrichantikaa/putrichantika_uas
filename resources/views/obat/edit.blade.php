@@ -15,11 +15,12 @@
                 <div class="card-header">Form Edit Data Obat</div>
 
                 <div class="card-body">
-                    <form method="post" action="/obat" enctype="multipart/form-data">
+                    <form method="post" action="/obat/{{ $obat->id }}" enctype="multipart/form-data">
                         @csrf
-                        <div class="mb-3">
+                        @method('PUT')
+                    <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Kode Obat</label>
-                        <input type="text" value="{{ $obat->kd_obat }}" name="kd_obat" class="form-control" id="exampleInputEmail1">
+                        <input type="text" value="{{ $obat->kd_obat }}" name="kd_obat" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" readonly>
                     </div>
                         <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Nama Obat</label>
@@ -27,7 +28,7 @@
                     </div>
                         <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Tgl Kadaluarsa</label>
-                        <input type="text" value="{{ $obat->tgl_kadaluarsa }}" name="tgl_kadaluarsa" class="form-control" id="exampleInputEmail1">
+                        <input type="date" value="{{ $obat->tgl_kadaluarsa }}" name="tgl_kadaluarsa" class="form-control" id="exampleInputEmail1">
                     </div>
                         <div class="mb-3">
                             <label for="exampleInputPassword1" class="form-label">Satuan</label>

@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Pasien;
+use App\Models\Resep;
+use App\Models\Pasien; 
+use App\Models\Obat; 
+use App\Models\Pengambilan;
 
 class PasienController extends Controller
 

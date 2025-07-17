@@ -127,7 +127,7 @@
           <ul class="menu-inner py-1">
             <!-- Dashboards -->
             <li class="menu-item">
-              <a href="/beranda" class="menu-link ">
+              <a href="/home" class="menu-link ">
                 <i class="menu-icon tf-icons bx bx-home-smile"></i>
                 <div class="text-truncate" data-i18n="Dashboards">Beranda</div>
               </a>

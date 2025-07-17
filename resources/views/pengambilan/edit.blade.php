@@ -1,10 +1,10 @@
 @extends('layouts.template')
 @section('title')
-    Halaman Data Obat
+    Halaman Data Pengambilan Obat
 @endsection
 
 @section('headline')
-    DATA OBAT
+    DATA PENGAMBILAN OBAT
 @endsection
 
 @section('content')
@@ -12,7 +12,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Form Edit Data Obat</div>
+                <div class="card-header">Form Edit Data Pengambilan Obat</div>
 
                 <div class="card-body">
                     <form method="post" action="/pengambilan/{{ $pengambilan->id }}" enctype="multipart/form-data">
@@ -48,8 +48,8 @@
                             <label for="exampleInputPassword1" class="form-label">Keterangan</label>
                             <select value="{{$pengambilan->keterangan}}" name="keterangan" class="form-control">
                                 <option value="keterangan">- Pilih Keterangan-</option>
-                                <option value="Sudah Diambil">- Sudah Diambil-</option>
-                                <option value="Belum Diambil">- Belum Diambil-</option>
+                                <option value="Sudah Diambil"> Sudah Diambil</option>
+                                <option value="Belum Diambil"> Belum Diambil</option>
                                
                             </select>
                         </div>

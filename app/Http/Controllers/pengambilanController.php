@@ -88,7 +88,7 @@ class PengambilanController extends Controller
     $pengambilan->keterangan = $request->keterangan;
     $pengambilan->save();
 
-    return redirect('/pengambilan')->with('success', 'Pengambilan berhasil diupdate.');
+    return redirect('/pengambilan')->with('success', 'Pengambilan Obat berhasil diupdate.');
 }
 
     /**

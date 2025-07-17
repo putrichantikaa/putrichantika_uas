@@ -22,7 +22,7 @@
           </div>
         </div>
         <div class="card-body">
-          Selamat Datang Admin, semoga harimu menyenangkan
+          Selamat Datang Admin, semoga harimu menyenangkan 
         </div>
         <!-- /.card-body -->
         <div class="card-footer">

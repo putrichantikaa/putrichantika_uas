@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Obat;
+use App\Models\Resep;
+use App\Models\Pasien; 
+use App\Models\Obat; 
+use App\Models\Pengambilan;
 
-class obatController extends Controller
+class ObatController extends Controller
 
 {
     /**

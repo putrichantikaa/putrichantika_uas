@@ -1,10 +1,10 @@
 @extends('layouts.template')
 @section('title')
-    Halaman Data Obat
+    Halaman Data Pengambilan Obat
 @endsection
 
 @section('headline')
-    DATA OBAT
+    DATA PENGAMBILAN OBAT
 @endsection
 
 @section('content')
@@ -20,17 +20,16 @@
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Nomor Resep</label>
                             <select name="reseps_id" id="" class="form-control">
-                                        <option value="">-Pilih-</option>
+                                        <option value="">-Pilih Nomor Resep-</option>
                                         @foreach ($resep as $r)
                                             <option value="{{$r->id}}">{{$r->no_resep}}</option>
                                         @endforeach
-
-                                    </select>
+                            </select>
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputPassword1" class="form-label">Nama Pasien</label>
                             <select name="pasiens_id" id="" class="form-control">
-                                        <option value="">-Pilih-</option>
+                                        <option value="">-Pilih Nama Pasien-</option>
                                         @foreach ($pasien as $p)
                                             <option value="{{$p->id}}">{{$p->nama_pasien}}</option>
                                         @endforeach
@@ -44,7 +43,7 @@
                          <div class="mb-3">
                                     <label for="exampleInputPassword1" class="form-label">Keterangan</label>
                                     <select name="keterangan" id="" class="form-control">
-                                        <option value="">-Pilih-</option>
+                                        <option value="">-Pilih Keterangan-</option>
                                         <option value="Sudah Diambil">Sudah Diambil</option>
                                         <option value="Belum Diambil">Belum Diambil</option>
                                         {{-- @foreach ($pengajuan as $item2)

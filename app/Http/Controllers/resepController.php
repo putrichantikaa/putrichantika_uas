@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Resep;
 use App\Models\Pasien; 
 use App\Models\Obat; 
+use App\Models\Pengambilan;
 
 class ResepController extends Controller
 
@@ -16,7 +17,7 @@ class ResepController extends Controller
     public function index()
     {
         $nomor = 1;
-        $resep = Resep::all();
+        $resep = Resep::with(['pasien', 'obat'])->get();
         return view('resep.index', compact('resep', 'nomor'));
     }
 
@@ -38,8 +39,8 @@ class ResepController extends Controller
     {
         $resep = new Resep;
         $resep->no_resep = $request->no_resep;
-        $resep->pasiens_id = $request->pasien;
-        $resep->obats_id = $request->obat;
+        $resep->pasiens_id = $request->pasiens_id;
+        $resep->obats_id = $request->obats_id;
         $resep->diagnosa = $request->diagnosa;
 
         $resep->save();
