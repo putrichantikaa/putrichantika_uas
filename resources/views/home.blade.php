@@ -14,7 +14,7 @@
         <div class="card-body d-flex justify-content-between align-items-center">
             <div>
                 <h5 class="text-primary fw-bold">🎉 Hello Admin!</h5>
-                <p class="mb-2"><strong>Selamat datang kembali! </strong> Semoga hari ini penuh produktivitas dan keberhasilan.</p>
+                <p class="mb-2"><strong>Selamat datang kembali! </strong> Semoga hari ini penuh produktivitas dan keberhasilan❤️</p>
             </div>
             <div>
                 <img src="https://img.freepik.com/free-vector/working-concept-illustration_114360-2143.jpg?w=740" alt="Person with laptop" width="120">
